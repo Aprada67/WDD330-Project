@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrisport</title>
+    <meta name="author" content="Alberto Prada">
+    <meta name="description" content="Feast Together is a web app that suggests 
+        recipes based on the ingredients you already have at home. Reduce food 
+        waste, discover new meals, and save your favorites.">
+
+    <!-- Open Graph Meta -->
+    <meta property="og:title" content="FeastFinder">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aprada67.github.io/wdd231/website-project/index.html">
+    <meta property="og:image" content="https://github.com/Aprada67/wdd231/blob/main/website-project/images/logo.webp">
+    <meta property="og:site_name" content="FeastFinder">
+    <meta property="og:description" content="Feast Together is a web app that 
+        suggests recipes based on the ingredients you already have at home. 
+        Reduce food waste, discover new meals, and save your favorites.">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/medium.css">
+    <link rel="stylesheet" href="styles/larger.css">
+
+    <!-- JS -->
+    <script src="scripts/main.js" type="module"></script>
+    <script src="scripts/hamb-menu.js" defer></script>
+    <script src="scripts/getdate.js" defer></script>
+
+    <!-- MJS -->
+    <script src="scripts/utils.mjs" type="module"></script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="navbar-left">
+                <img id="logo" class="logo" src="images/logo.png" alt="Logo" loading="lazy" width="25" height="25">
+            </div>
+            <div class="menu-icon" id="menu-icon">
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul id="menu" class="menu">
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>
+                    <a href="favorites.html">Favorites</a>
+                </li>
+                <li>
+                    <a href="contact.html">Contact</a>
+                </li>
+                <li>
+                    <a href="about.html">About</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="food-generator">
+            <h1>Feast Together</h1>
+
+            <form id="ingredientForm">
+                <input type="text" id="ingredients" placeholder="Enter ingredients (e.g. chicken, rice)" required />
+                <button type="submit">Find Recipe</button>
+            </form>
+
+            <div id="recipesContainer"></div>
+
+            <dialog id="recipeDialog">
+                <div id="recipeContent"></div>
+                <button id="addToFavorites">Add to Favorites</button>
+                <button id="closeDialog">Close</button>
+            </dialog>
+        </section>
+
+        <!-- Contact Us -->
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>We'd love to hear from you! Please fill out the form below to get in touch with us.</p>
+
+            <form action="https://formsubmit.co/ajax/albertojprada10@gmail.com" method="POST" id="contact-form">
+                <input type="hidden" name="_captcha" value="false">
+
+                <div class="form-group">
+                    <label for="name" style="color: black;">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" style="color: black;">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message" style="color: black;">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+
+                <button class="submit-btn" type="submit">Send</button>
+
+                <p id="form-message"></p>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-container">
+        <div class="footer-info">
+            <h4>Contact Us</h4>
+            <p>Email: albertojprada10@hotmail.com</p>
+            <p>Phone: +351 912634153</p>
+            <p>Location: Lisbon, Portugal</p>
+            <p>Available for freelance projects or collaborations!</p>
+        </div>
+
+        <div>
+            <h4>Stay Connected</h4>
+            <div class="social-icons-footer">
+                <a href="https://github.com/Aprada67" target="_blank">
+                    <img class="social-icons" src="images/social/github.png" alt="Github" loading="lazy" width="25"
+                        height="25">
+                </a>
+                <a href="https://www.linkedin.com/in/alberto-prada67/" target="_blank">
+                    <img class="social-icons" src="images/social/linkedin.png" alt="LinkedIn" loading="lazy" width="25"
+                        height="25">
+                </a>
+                <a href="https://www.instagram.com/albertoprada__/" target="_blank">
+                    <img class="social-icons" src="images/social/instagram.png" alt="Instagram" loading="lazy"
+                        width="25" height="25">
+                </a>
+                <a href="mailto:albertojprada10@gmail.com" target="_blank" aria-label="E-mail">
+                    <img class="social-icons" src="images/social/email.png" alt="E-mail" loading="lazy" width="25"
+                        height="25">
+                </a>
+            </div>
+            <p class="follow-me">Follow me on my social networks for more content and updates.</p>
+        </div>
+
+        <div class="my-info">
+            <h4>About This Site</h4>
+            <p>WDD231 Class Project</p>
+            <p>Designed & Developed by Alberto Prada</p>
+            <p>Passionate about web development and user experience.</p>
+            <p id="copyright"></p>
+            <p id="last-modified"></p>
+        </div>
+    </footer>
+</body>
+
+</html>
