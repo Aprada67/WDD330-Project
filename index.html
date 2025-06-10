@@ -72,9 +72,44 @@
         </nav>
     </header>
 
-    <main>
+    <main id="home-page">
+        <!-- Hero -->
+        <section id="hero">
+            <div class="hero-img">
+                <div class="overlay"></div>
+                <picture>
+                    <source srcset="images/hero-large.webp" media="(min-width: 768px)">
+                    <img class="hero-img" src="images/hero.webp" alt="Hero Image" loading="lazy">
+                </picture>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/Aprada67" target="_blank" aria-label="github">
+                    <img class="social-icons" src="images/social/github.png" alt="Github" loading="lazy" width="25"
+                        height="25">
+                </a>
+                <a href="https://www.linkedin.com/in/alberto-prada67/" target="_blank" aria-label="linkedin">
+                    <img class="social-icons" src="images/social/linkedin.png" alt="LinkedIn" loading="lazy" width="25"
+                        height="25">
+                </a>
+                <a href="https://www.instagram.com/albertoprada__/" target="_blank" aria-label="instagram">
+                    <img class="social-icons" src="images/social/instagram.png" alt="Instagram" loading="lazy"
+                        width="25" height="25">
+                </a>
+                <a href="mailto:albertojprada10@gmail.com" target="_blank" aria-label="E-mail">
+                    <img class="social-icons" src="images/social/email.png" alt="E-mail" loading="lazy" width="25"
+                        height="25">
+                </a>
+            </div>
+            <div class="content">
+                <h1>Feast Together</h1>
+                <p>Find delicious meals using any ingredient you have.<br>
+                    Just enter an ingredient and discover what you can cook today.</p>
+                <a href="#explore" class="btn-primary btn">Learn more</a>
+                <a href="#discover" class="btn-secondary btn">Contact us</a>
+            </div>
+        </section>
+
         <section id="food-generator">
-            <h1>Feast Together</h1>
 
             <form id="ingredientForm">
                 <input type="text" id="ingredients" placeholder="Enter ingredients (e.g. chicken, rice)" required />
@@ -85,8 +120,8 @@
 
             <dialog id="recipeDialog">
                 <div id="recipeContent"></div>
-                <button id="addToFavorites">Add to Favorites</button>
-                <button id="closeDialog">Close</button>
+                <button class="btn" id="addToFavorites">Add to Favorites</button>
+                <button class="btn" id="closeDialog">Close</button>
             </dialog>
         </section>
 

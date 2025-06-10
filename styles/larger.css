@@ -30,12 +30,9 @@
     }
 
     /* Contact Page */
-    .contact-main {
-        max-width: 700px;
-    }
-
-    /* About Page */
-    .about-main {
-        max-width: 800px;
+    .contact-main,
+    .about section,
+    #home-page section:not(:first-of-type) {
+        max-width: 60%;
     }
 }

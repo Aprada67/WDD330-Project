@@ -67,6 +67,11 @@
         flex-direction: row;
     }
 
+    /* Main */
+    section {
+        margin: 0 auto;
+    }
+
     /* Footer */
     .footer-container {
         grid-template-columns: repeat(3, 1fr);
@@ -97,7 +102,9 @@
         font-size: 2rem;
     }
 
-    .contact-main {
+    .contact-main,
+    .about section,
+    #home-page section:not(:first-of-type) {
         max-width: 600px;
         margin: 2rem auto;
     }
@@ -112,12 +119,8 @@
         font-size: 2.2rem;
     }
 
-    .about-main h2 {
+    .about h2 {
         font-size: 1.6rem;
     }
 
-    .about-main {
-        max-width: 90%;
-        margin: auto;
-    }
 }
