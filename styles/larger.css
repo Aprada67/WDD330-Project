@@ -29,6 +29,11 @@
         --font-family-content: "Inter", sans-serif;
     }
 
+    /* Hero */
+    .content p {
+        width: 100%;
+    }
+
     /* Contact Page */
     .contact-main,
     .about section,

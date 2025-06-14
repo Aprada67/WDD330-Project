@@ -111,6 +111,9 @@
 
         <section id="food-generator">
 
+            <h2>Need inspiration?</h2>
+            <p>Insert below the ingredient you want to make a food with</p>
+
             <form id="ingredientForm">
                 <input type="text" id="ingredients" placeholder="Enter ingredients (e.g. chicken, rice)" required />
                 <button type="submit">Find Recipe</button>
@@ -120,8 +123,10 @@
 
             <dialog id="recipeDialog">
                 <div id="recipeContent"></div>
-                <button class="btn" id="addToFavorites">Add to Favorites</button>
-                <button class="btn" id="closeDialog">Close</button>
+                <div class="dialog-btn-container">
+                    <button class="btn" id="addToFavorites">Add to Favorites ❤️</button>
+                    <button class="btn" id="closeDialog">Close</button>
+                </div>
             </dialog>
         </section>
 

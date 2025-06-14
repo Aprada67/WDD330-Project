@@ -1,5 +1,5 @@
 // API Keys
-const SPOONACULAR_API_KEY = "1b9a8dbb01c04ede8a68b0eeddd5cdb9";
+export const SPOONACULAR_API_KEY = "1b9a8dbb01c04ede8a68b0eeddd5cdb9";
 const GIPHY_API_KEY = "iwAtkywjb8bMiT4MkUjP3UkHRhxhKK7D";
 
 /**
@@ -27,7 +27,7 @@ export async function loadJSON(url) {
  * @returns {Promise<Array>} - List of recipes
  */
 export async function getRecipesByIngredients(ingredients) {
-    const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${encodeURIComponent(ingredients)}&number=5&apiKey=${SPOONACULAR_API_KEY}`;
+    const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${encodeURIComponent(ingredients)}&number=6&apiKey=${SPOONACULAR_API_KEY}`;
     return await loadJSON(url);
 }
 
@@ -37,17 +37,26 @@ export async function getRecipesByIngredients(ingredients) {
  * @returns {Promise<string>} - URL of a GIF
  */
 export async function getGif(searchTerm) {
-    const url = `https://api.giphy.com/v1/gifs/search?api_key=${GIPHY_API_KEY}&q=${encodeURIComponent(searchTerm)}&limit=1`;
+    const url = `https://api.giphy.com/v1/gifs/search?api_key=${GIPHY_API_KEY}&q=${encodeURIComponent(searchTerm)}&limit=5&rating=g&lang=en`;
     try {
         const data = await loadJSON(url);
-        
+
         if (!data.data || data.data.length === 0) {
             throw new Error(`No GIFs found for "${searchTerm}"`);
         }
 
-        return data.data[0].images.original.url;
+        // Buscar el primer gif cuyo título contenga el término de búsqueda
+        const relevantGif = data.data.find(gif =>
+            gif.title.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+
+        if (!relevantGif) {
+            throw new Error(`No relevant GIFs found for "${searchTerm}"`);
+        }
+
+        return relevantGif.images.original.url;
     } catch (error) {
         console.error(`GIF search failed for "${searchTerm}":`, error.message);
-        throw error; // Re-lanzamos el error para manejarlo en el componente
+        throw error;
     }
 }

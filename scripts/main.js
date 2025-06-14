@@ -1,4 +1,4 @@
-import { getRecipesByIngredients, getGif } from "./utils.mjs";
+import { getRecipesByIngredients, getGif, SPOONACULAR_API_KEY } from "./utils.mjs";
 
 // DOM Variables
 const form = document.getElementById('ingredientForm');
@@ -16,26 +16,28 @@ form.addEventListener("submit", async (e) => {
 
     try {
         const recipes = await getRecipesByIngredients(ingredients);
-        
+
+        if (!recipes || recipes.length === 0) {
+            recipesContainer.innerHTML = `<p class="error-recipe">No recipes found. Please check your spelling or try different ingredients.</p>`;
+            return;
+        }
+
         for (const recipe of recipes) {
-            let gifContent = '';
-            
+            let gifUrl = "";
             try {
-                const gifUrl = await getGif(recipe.title);
-                gifContent = `<img src="${gifUrl}" alt="Gif for ${recipe.title}" loading="lazy">`;
+                gifUrl = await getGif(recipe.title);
             } catch (gifError) {
                 console.error('Error fetching GIF:', gifError.message);
-                gifContent = '<p class="no-gif">No GIF available</p>';
+                gifUrl = "";
             }
 
             const recipeCard = document.createElement("div");
             recipeCard.classList.add("recipe-card");
 
             recipeCard.innerHTML = `
-                <h3>${recipe.title}</h3>
-                <img src="${recipe.image}" class="recipe-img" alt="${recipe.title}" loading="lazy">
-                ${gifContent}
-                <button data-id="${recipe.id}" class="btn viewRecipe">View Recipe</button>
+                    <h3 class="recipe-heading">${recipe.title}</h3>
+                    <img src="${recipe.image}" class="recipe-img" alt="${recipe.title}" loading="lazy">
+                <button data-id="${recipe.id}" class="viewRecipe">View Recipe</button>
             `;
 
             recipesContainer.appendChild(recipeCard);
@@ -50,7 +52,7 @@ form.addEventListener("submit", async (e) => {
 
                     dialogContent.innerHTML = `
                         <h2>${recipeData.title}</h2>
-                        <img src="${recipeData.image}" alt="${recipeData.title}">
+                        <img src="${recipeData.image}" class="recipe-img" alt="${recipeData.title}">
                         <p><strong>Ready in:</strong> ${recipeData.readyInMinutes} minutes</p>
                         <p><strong>Servings:</strong> ${recipeData.servings}</p>
                         <p>${recipeData.summary}</p>
