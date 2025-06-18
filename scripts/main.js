@@ -1,4 +1,7 @@
+import { FavoritesManager } from "./favoritesManager.js";
 import { getRecipesByIngredients, getGif, SPOONACULAR_API_KEY } from "./utils.mjs";
+
+const favoritesManager = new FavoritesManager();
 
 // DOM Variables
 const form = document.getElementById('ingredientForm');
@@ -6,7 +9,13 @@ const recipesContainer = document.getElementById('recipesContainer');
 const dialog = document.getElementById('recipeDialog');
 const dialogContent = document.getElementById('recipeContent');
 const closeDialog = document.getElementById('closeDialog');
-const addToFavorites = document.getElementById('addToFavorites');
+const favBtn = document.getElementById('addToFavorites');
+
+let currentRecipe = null;
+
+// -------------------------------
+// ------- Event Listeners -------
+// -------------------------------
 
 // Find Recipe
 form.addEventListener("submit", async (e) => {
@@ -35,10 +44,12 @@ form.addEventListener("submit", async (e) => {
             recipeCard.classList.add("recipe-card");
 
             recipeCard.innerHTML = `
-                    <h3 class="recipe-heading">${recipe.title}</h3>
-                    <img src="${recipe.image}" class="recipe-img" alt="${recipe.title}" loading="lazy">
+                <h3 class="recipe-heading">${recipe.title}</h3>
+                <img src="${recipe.image}" class="recipe-img" alt="${recipe.title}" loading="lazy">
                 <button data-id="${recipe.id}" class="viewRecipe">View Recipe</button>
             `;
+
+            recipeCard.style.animationDelay = `${recipe * 100}ms`;
 
             recipesContainer.appendChild(recipeCard);
         }
@@ -49,6 +60,8 @@ form.addEventListener("submit", async (e) => {
                     const recipeId = event.target.dataset.id;
                     const recipeDetailsUrl = `https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=${SPOONACULAR_API_KEY}`;
                     const recipeData = await fetch(recipeDetailsUrl).then(res => res.json());
+
+                    currentRecipe = recipeData;
 
                     dialogContent.innerHTML = `
                         <h2>${recipeData.title}</h2>
@@ -71,10 +84,24 @@ form.addEventListener("submit", async (e) => {
     }
 });
 
-// Close dialog event
-closeDialog.addEventListener("click", () => {
-    dialog.close();
+// Add to favorites
+favBtn.addEventListener("click", () => {
+    if (currentRecipe) {
+        const recipeToSave = {
+            id: currentRecipe.id,
+            title: currentRecipe.title,
+            image: currentRecipe.image,
+            readyInMinutes: currentRecipe.readyInMinutes,
+            servings: currentRecipe.servings,
+            summary: currentRecipe.summary
+        };
+        favoritesManager.add(recipeToSave);
+        alert("Added to favorites!");
+    }
 });
+
+// Close dialog event
+closeDialog.addEventListener("click", () => dialog.close());
 
 // Close dialog when clicks outside
 dialog.addEventListener('click', (e) => {

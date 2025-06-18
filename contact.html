@@ -36,9 +36,9 @@
     <link rel="stylesheet" href="styles/larger.css">
 
     <!-- JS -->
-    <script src="scripts/main.js" type="module"></script>
     <script src="scripts/hamb-menu.js" defer></script>
     <script src="scripts/getdate.js" defer></script>
+    <script src="scripts/contactForm.js" defer></script>
 
     <!-- MJS -->
     <script src="scripts/utils.mjs" type="module"></script>
@@ -79,20 +79,31 @@
         </div>
 
         <section class="contact-main">
-            <form id="contact-form" aria-label="Contact Form">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" required/>
+            <form id="contact-form">
+                <input type="hidden" name="_captcha" value="false">
 
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" required/>
+                <div class="form-group">
+                    <label for="name" style="color: black;">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
 
-                <label for="subject">Subject</label>
-                <input type="text" id="subject" name="subject" required/>
+                <div class="form-group">
+                    <label for="email" style="color: black;">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required />
+                </div>
 
-                <label for="message">Your Message</label>
-                <textarea id="message" name="message" rows="6" required></textarea>
+                <div class="form-group">
+                    <label for="message" style="color: black;">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
 
-                <button type="submit">Send Message</button>
+                <button class="submit-btn" type="submit">Send</button>
+                <p id="form-message"></p>
             </form>
         </section>
     </main>

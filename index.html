@@ -20,7 +20,7 @@
         suggests recipes based on the ingredients you already have at home. 
         Reduce food waste, discover new meals, and save your favorites.">
 
-    <link rel="icon" type="image/png" sizes="32x32" href="">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/icon.png">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,11 +36,12 @@
     <link rel="stylesheet" href="styles/larger.css">
 
     <!-- JS -->
-    <script src="scripts/main.js" type="module"></script>
     <script src="scripts/hamb-menu.js" defer></script>
     <script src="scripts/getdate.js" defer></script>
+    <script src="scripts/contactForm.js" defer></script>
 
     <!-- MJS -->
+    <script src="scripts/main.js" type="module"></script>
     <script src="scripts/utils.mjs" type="module"></script>
 </head>
 
@@ -104,8 +105,8 @@
                 <h1>Feast Together</h1>
                 <p>Find delicious meals using any ingredient you have.<br>
                     Just enter an ingredient and discover what you can cook today.</p>
-                <a href="#explore" class="btn-primary btn">Learn more</a>
-                <a href="#discover" class="btn-secondary btn">Contact us</a>
+                <a href="#food-generator" class="btn-primary btn">Start Creating</a>
+                <a href="#contact" class="btn-secondary btn">Contact us</a>
             </div>
         </section>
 
@@ -135,7 +136,7 @@
             <h2>Contact Us</h2>
             <p>We'd love to hear from you! Please fill out the form below to get in touch with us.</p>
 
-            <form action="https://formsubmit.co/ajax/albertojprada10@gmail.com" method="POST" id="contact-form">
+            <form id="contact-form">
                 <input type="hidden" name="_captcha" value="false">
 
                 <div class="form-group">
@@ -154,7 +155,6 @@
                 </div>
 
                 <button class="submit-btn" type="submit">Send</button>
-
                 <p id="form-message"></p>
             </form>
         </section>

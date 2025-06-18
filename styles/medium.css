@@ -68,6 +68,10 @@
     }
 
     /* Hero */
+    #hero {
+        height: 100vh;
+    }
+
     .content p {
         width: 80%;
     }
@@ -113,7 +117,8 @@
 
     .contact-main,
     .about section,
-    #home-page section:not(:first-of-type) {
+    #home-page section:not(:first-of-type),
+    #favorites-content {
         max-width: 600px;
         margin: 2rem auto;
     }

@@ -1,0 +1,34 @@
+[
+  {
+    "title": "Our Mission",
+    "content": "<p>Feast Together helps you transform the ingredients you already have at home into delicious meals. We want to reduce food waste, promote home cooking, and bring joy to your kitchen through intelligent recipe suggestions and fun visuals.</p>"
+  },
+  {
+    "title": "Our Vision",
+    "content": "<p>To empower individuals—especially students and busy professionals—to cook creatively with what they have, save money, and discover the satisfaction of preparing meals from scratch.</p>"
+  },
+  {
+    "title": "Core Values",
+    "content": "<ul><li><strong>Simplicity:</strong> Easy-to-use and intuitive design</li><li><strong>Sustainability:</strong> Reduce waste, save ingredients</li><li><strong>Creativity:</strong> Discover new meals and cooking ideas</li><li><strong>Fun:</strong> GIFs and visuals make cooking entertaining</li></ul>"
+  },
+  {
+    "title": "Technologies Used",
+    "content": "<ul><li>HTML5, CSS3, JavaScript ES6+</li><li>Spoonacular API for recipe suggestions</li><li>GIPHY API for fun and engaging visuals</li><li>Responsive design principles (mobile-first)</li><li>LocalStorage for favorites</li></ul>"
+  },
+  {
+    "title": "The Creator",
+    "content": "<p>Hi! I'm the developer behind <strong>Feast Together</strong>. This project was built as a final assignment for the WDD 330 course. I’m passionate about solving real-life problems through code and making tools that are both useful and enjoyable to use.</p><p>You can check out my work on <a href=\"https://github.com/Aprada67\" target=\"_blank\">GitHub</a> or <a href=\"contact.html\">contact me here</a>.</p>"
+  },
+  {
+    "title": "Sustainability Initiatives",
+    "content": "<p>We partner with local organizations to promote sustainable cooking habits and reduce food waste in communities. Join us in making a positive environmental impact.</p>"
+  },
+  {
+    "title": "User Testimonials",
+    "content": "<ul><li>\"Feast Together has changed how I cook! I never waste ingredients anymore.\" - Maria</li><li>\"The recipe suggestions are spot on and the visuals make cooking fun.\" - John</li></ul>"
+  },
+  {
+    "title": "Future Plans",
+    "content": "<p>We plan to integrate voice control, add more APIs for diverse recipes, and build a community forum to share tips and ideas.</p>"
+  }
+]
